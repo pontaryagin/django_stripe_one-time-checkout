@@ -34,8 +34,8 @@ def stripe_config(request):
     if request.method == 'GET':
         stripe_config = {
             'publicKey': settings.STRIPE_PUBLISHABLE_KEY,
-            'basePrice': os.getenv('BASE_PRICE'),
-            'currency': os.getenv('CURRENCY'),
+            'basePrice': 123,
+            'currency': "JPY",
         }
         return JsonResponse(stripe_config, safe=False)
 
@@ -43,7 +43,7 @@ def stripe_config(request):
 def onetime_payment_checkout(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        domain_url = os.getenv('DOMAIN')
+        domain_url = "http://localhost:8080/"#os.getenv('DOMAIN')
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
             # Create new Checkout Session for the order
@@ -65,8 +65,8 @@ def onetime_payment_checkout(request):
                         "name": "Pasha photo",
                         "images": ["https://picsum.photos/300/300?random=4"],
                         "quantity": data['quantity'],
-                        "currency": os.getenv('CURRENCY'),
-                        "amount": os.getenv('BASE_PRICE'),
+                        "currency": "JPY",
+                        "amount":365, #os.getenv('BASE_PRICE'),
                     }
                 ]
             )

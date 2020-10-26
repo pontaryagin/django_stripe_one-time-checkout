@@ -24,7 +24,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = "1"#env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
+    #'django_extensions',
     'stripe',
     'checkout.apps.CheckoutConfig', # 自作 チェックアウト
 ]
@@ -127,5 +127,5 @@ STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
 # Stripe settings #
 ###################
 
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = "sk_test_51Hg874Ko65cjAEdUttOa7rGpKPjg6P8Y9W4CSCi7UyWz0J3QSAyyalgT0eJRq8jPJP5ULYWUBscw3vopna2uNk3A00cHrQtg1D"#env('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = "pk_test_51Hg874Ko65cjAEdUFLNe3GsIXgS3cgUS0GfjgsHqB1GHeP0497J2z94C84jZZgFmKIL6Cn5MQrD4aKMntfWgHQQy00wEzSv0ef"# env('STRIPE_PUBLISHABLE_KEY')
